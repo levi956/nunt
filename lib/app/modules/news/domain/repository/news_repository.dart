@@ -11,7 +11,7 @@ class NewsRepository implements NewsRepositoryInterface {
 
   @override
   Future<List<NewsModel>> getCategoryNews(String keywoord) {
-    throw UnimplementedError();
+    return _newsService.getCategoryNews(keywoord);
   }
 
   @override

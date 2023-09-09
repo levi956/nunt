@@ -23,9 +23,11 @@ import 'app/modules/authentication/domain/service/authentication_service.dart'
 import 'app/modules/authentication/domain/service/interface/authentication_service_interface.dart'
     as _i8;
 import 'app/modules/authentication/presentation/controllers/login_controller.dart'
-    as _i15;
-import 'app/modules/home/presentation/controller/get_news_controller.dart'
+    as _i16;
+import 'app/modules/home/presentation/controller/get_category_news_controller.dart'
     as _i14;
+import 'app/modules/home/presentation/controller/get_news_controller.dart'
+    as _i15;
 import 'app/modules/news/domain/repository/interface/news_repository_interface.dart'
     as _i10;
 import 'app/modules/news/domain/repository/news_repository.dart' as _i11;
@@ -33,7 +35,7 @@ import 'app/modules/news/domain/service/interface/news_service_interface.dart'
     as _i6;
 import 'app/modules/news/domain/service/news_service.dart' as _i7;
 import 'core/framework/theme/controller/app_theme_controller.dart' as _i3;
-import 'injection_modules/firebase_modules.dart' as _i16;
+import 'injection_modules/firebase_modules.dart' as _i17;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -62,12 +64,15 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i12.AuthenticationRepositoryInterface>(() =>
         _i13.AuthenticationRepository(
             gh<_i8.AuthenticationServiceInterface>()));
-    gh.lazySingleton<_i14.GetNewsController>(() =>
-        _i14.GetNewsController(repository: gh<_i10.NewsRepositoryInterface>()));
-    gh.lazySingleton<_i15.LoginController>(() => _i15.LoginController(
+    gh.lazySingleton<_i14.GetNewsCategoryController>(() =>
+        _i14.GetNewsCategoryController(
+            repository: gh<_i10.NewsRepositoryInterface>()));
+    gh.lazySingleton<_i15.GetNewsController>(() =>
+        _i15.GetNewsController(repository: gh<_i10.NewsRepositoryInterface>()));
+    gh.lazySingleton<_i16.LoginController>(() => _i16.LoginController(
         repository: gh<_i12.AuthenticationRepositoryInterface>()));
     return this;
   }
 }
 
-class _$FirebaseModule extends _i16.FirebaseModule {}
+class _$FirebaseModule extends _i17.FirebaseModule {}

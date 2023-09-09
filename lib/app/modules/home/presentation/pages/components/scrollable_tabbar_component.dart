@@ -36,7 +36,6 @@ class ScrollableTabBarComponent extends StatelessWidget {
             unselectedLabelColor: colors.lightBlackDarkWhite,
             unselectedLabelStyle: const TextStyle(
               fontSize: 12,
-              fontFamily: 'DMSans',
               fontWeight: FontWeight.w400,
             ),
             indicator: BoxDecoration(
@@ -47,7 +46,6 @@ class ScrollableTabBarComponent extends StatelessWidget {
             labelStyle: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 12,
-              fontFamily: 'DMSans',
             ),
             tabs: [
               for (final option in options) Tab(text: option),

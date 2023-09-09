@@ -20,13 +20,13 @@ NewsModel _$NewsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewsModel {
-  String get title => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
-  String get urlToImage => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  DateTime get publishedAt => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  DateTime? get publishedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,13 +40,13 @@ abstract class $NewsModelCopyWith<$Res> {
       _$NewsModelCopyWithImpl<$Res, NewsModel>;
   @useResult
   $Res call(
-      {String title,
-      String author,
-      String content,
-      String urlToImage,
-      String description,
-      String url,
-      DateTime publishedAt});
+      {String? title,
+      String? author,
+      String? content,
+      String? urlToImage,
+      String? description,
+      String? url,
+      DateTime? publishedAt});
 }
 
 /// @nodoc
@@ -62,43 +62,43 @@ class _$NewsModelCopyWithImpl<$Res, $Val extends NewsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? author = null,
-    Object? content = null,
-    Object? urlToImage = null,
-    Object? description = null,
-    Object? url = null,
-    Object? publishedAt = null,
+    Object? title = freezed,
+    Object? author = freezed,
+    Object? content = freezed,
+    Object? urlToImage = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? publishedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
+              as String?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
-      urlToImage: null == urlToImage
+              as String?,
+      urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedAt: null == publishedAt
+              as String?,
+      publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -111,13 +111,13 @@ abstract class _$$_NewsModelCopyWith<$Res> implements $NewsModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String title,
-      String author,
-      String content,
-      String urlToImage,
-      String description,
-      String url,
-      DateTime publishedAt});
+      {String? title,
+      String? author,
+      String? content,
+      String? urlToImage,
+      String? description,
+      String? url,
+      DateTime? publishedAt});
 }
 
 /// @nodoc
@@ -131,43 +131,43 @@ class __$$_NewsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? author = null,
-    Object? content = null,
-    Object? urlToImage = null,
-    Object? description = null,
-    Object? url = null,
-    Object? publishedAt = null,
+    Object? title = freezed,
+    Object? author = freezed,
+    Object? content = freezed,
+    Object? urlToImage = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? publishedAt = freezed,
   }) {
     return _then(_$_NewsModel(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
+              as String?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
-      urlToImage: null == urlToImage
+              as String?,
+      urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedAt: null == publishedAt
+              as String?,
+      publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -176,31 +176,31 @@ class __$$_NewsModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NewsModel implements _NewsModel {
   const _$_NewsModel(
-      {required this.title,
-      required this.author,
-      required this.content,
-      required this.urlToImage,
-      required this.description,
-      required this.url,
-      required this.publishedAt});
+      {this.title,
+      this.author,
+      this.content,
+      this.urlToImage,
+      this.description,
+      this.url,
+      this.publishedAt});
 
   factory _$_NewsModel.fromJson(Map<String, dynamic> json) =>
       _$$_NewsModelFromJson(json);
 
   @override
-  final String title;
+  final String? title;
   @override
-  final String author;
+  final String? author;
   @override
-  final String content;
+  final String? content;
   @override
-  final String urlToImage;
+  final String? urlToImage;
   @override
-  final String description;
+  final String? description;
   @override
-  final String url;
+  final String? url;
   @override
-  final DateTime publishedAt;
+  final DateTime? publishedAt;
 
   @override
   String toString() {
@@ -245,31 +245,31 @@ class _$_NewsModel implements _NewsModel {
 
 abstract class _NewsModel implements NewsModel {
   const factory _NewsModel(
-      {required final String title,
-      required final String author,
-      required final String content,
-      required final String urlToImage,
-      required final String description,
-      required final String url,
-      required final DateTime publishedAt}) = _$_NewsModel;
+      {final String? title,
+      final String? author,
+      final String? content,
+      final String? urlToImage,
+      final String? description,
+      final String? url,
+      final DateTime? publishedAt}) = _$_NewsModel;
 
   factory _NewsModel.fromJson(Map<String, dynamic> json) =
       _$_NewsModel.fromJson;
 
   @override
-  String get title;
+  String? get title;
   @override
-  String get author;
+  String? get author;
   @override
-  String get content;
+  String? get content;
   @override
-  String get urlToImage;
+  String? get urlToImage;
   @override
-  String get description;
+  String? get description;
   @override
-  String get url;
+  String? get url;
   @override
-  DateTime get publishedAt;
+  DateTime? get publishedAt;
   @override
   @JsonKey(ignore: true)
   _$$_NewsModelCopyWith<_$_NewsModel> get copyWith =>

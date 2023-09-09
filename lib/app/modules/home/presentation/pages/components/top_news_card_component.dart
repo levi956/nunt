@@ -16,62 +16,60 @@ class _TopNewsCardComponentState extends State<TopNewsCardComponent>
     with AppThemeMixin {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ),
-              child: CachedNetworkImage(
-                imageUrl: widget.news.urlToImage,
-                fit: BoxFit.fill,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
             ),
-            Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+            child: CachedNetworkImage(
+              imageUrl: widget.news.urlToImage ?? defaultImage,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            width: double.maxFinite,
+            padding: const EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: 10,
+            ),
+            color: colors.lightF3F4F6DarkF3F4F6,
+            child: BaseText(
+              widget.news.title ?? '',
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+            ),
+          ),
+          Container(
+            width: double.maxFinite,
+            padding: const EdgeInsets.only(
+              bottom: 10,
+              left: 10,
+              right: 10,
+            ),
+            decoration: BoxDecoration(
               color: colors.lightF3F4F6DarkF3F4F6,
-              child: BaseText(
-                widget.news.title,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15),
               ),
             ),
-            Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.only(
-                bottom: 10,
-                left: 10,
-                right: 10,
-              ),
-              decoration: BoxDecoration(
-                color: colors.lightWhiteDarkBlack,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                ),
-              ),
-              child: BaseText(
-                widget.news.description,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                //   overflow: TextOverflow.ellipsis,
-                //   maxLines: 3,
-              ),
+            child: BaseText(
+              widget.news.description ?? '',
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              //   overflow: TextOverflow.ellipsis,
+              maxLines: 3,
             ),
-            const SizedBox(height: 20),
-          ],
-        ),
+          ),
+          const SizedBox(height: 20),
+        ],
       ),
     );
   }

@@ -7,15 +7,18 @@ part 'news_model.g.dart';
 @freezed
 class NewsModel with _$NewsModel {
   const factory NewsModel({
-    required String title,
-    required String author,
-    required String content,
-    required String urlToImage,
-    required String description,
-    required String url,
-    required DateTime publishedAt,
+    String? title,
+    String? author,
+    String? content,
+    String? urlToImage,
+    String? description,
+    String? url,
+    DateTime? publishedAt,
   }) = _NewsModel;
 
   factory NewsModel.fromJson(Map<String, Object?> json) =>
       _$NewsModelFromJson(json);
 }
+
+const defaultImage =
+    'https://cdn.pixabay.com/photo/2016/02/01/00/56/news-1172463__480.jpg';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nuntium_rigid/app/modules/authentication/presentation/pages/login_page.dart';
 import 'package:nuntium_rigid/app/modules/home/presentation/pages/home_page.dart';
 import 'package:nuntium_rigid/core/environment/environment.dart';
 import 'package:nuntium_rigid/injectable.dart';
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SFPRO',
         useMaterial3: false,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

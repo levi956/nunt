@@ -10,8 +10,15 @@ import 'package:nuntium_rigid/core/core.dart';
 @LazySingleton(as: NewsServiceInterface)
 class NewsService implements NewsServiceInterface {
   @override
-  Future<List<NewsModel>> getCategoryNews(String keywoord) {
-    throw UnimplementedError();
+  Future<List<NewsModel>> getCategoryNews(String category) async {
+    final r = await HTTP.get('/top-headlines?country=us&category=$category');
+    if (r.is200or201) {
+      final body = jsonDecode(r.body);
+      List<dynamic> articles = body['articles'];
+      final news = articles.map((e) => NewsModel.fromJson(e)).toList();
+      return news;
+    }
+    throw AppException.fromResponse(r);
   }
 
   @override
@@ -20,12 +27,9 @@ class NewsService implements NewsServiceInterface {
       key: 'Authorization',
       value: 'fae23e0131604ca99bd4b7c2fa7915c9',
     );
-    final r = await HTTP.get('everything?q=bitcoin');
-    print(r.statusCode);
-    print(jsonDecode(r.body));
+    final r = await HTTP.get('/top-headlines?country=us&category=general');
     if (r.is200or201) {
       final body = jsonDecode(r.body);
-      print(body);
       List<dynamic> articles = body['articles'];
       final news = articles.map((e) => NewsModel.fromJson(e)).toList();
       return news;

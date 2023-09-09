@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nuntium_rigid/app/modules/home/presentation/controller/get_news_controller.dart';
+import 'package:nuntium_rigid/app/modules/home/presentation/pages/components/mini_news_card_component.dart';
 import 'package:nuntium_rigid/app/modules/home/presentation/pages/components/scrollable_tabbar_component.dart';
 import 'package:nuntium_rigid/app/modules/home/presentation/pages/components/top_news_card_component.dart';
 import 'package:nuntium_rigid/app/shared/shared.dart';
@@ -20,6 +21,8 @@ class _HomePageState extends State<HomePage>
   late GetNewsController getNewsController;
 
   int tabIndex = 0;
+
+  final categories = ['general', 'sports', 'technology', 'business'];
 
   @override
   void initState() {
@@ -69,6 +72,18 @@ class _HomePageState extends State<HomePage>
                   'Technology',
                   'Business',
                 ],
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.22,
+                child: TabBarView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: tabController,
+                  children: [
+                    for (final category in categories)
+                      MiniNewsCardComponent(category: category),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               const BaseText(
