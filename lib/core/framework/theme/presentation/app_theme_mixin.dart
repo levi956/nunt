@@ -6,7 +6,7 @@ import '../colors/app_colors.dart';
 import '../colors/app_theme.dart';
 
 mixin AppThemeMixin<T extends StatefulWidget> on State<T> {
-  late AppTheme theme = AppTheme.light();
+  late AppTheme theme = AppTheme.dark();
   late AppColors colors = theme.colors;
 
   @override

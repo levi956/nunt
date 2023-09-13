@@ -35,9 +35,9 @@ class _CustomTextFieldState extends State<CustomTextField> with AppThemeMixin {
       style: const TextStyle(fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: colors.lightF3F4F6DarkF3F4F6,
+        fillColor: colors.lightF3F4F6Dark5A5A5A,
         filled: true,
-        focusColor: colors.lightF3F4F6DarkF3F4F6,
+        focusColor: colors.lightF3F4F6Dark5A5A5A,
         prefixIcon: widget.iconLabel,
         suffixIcon: widget.iconSuffix,
         labelText: widget.label,
@@ -48,7 +48,9 @@ class _CustomTextFieldState extends State<CustomTextField> with AppThemeMixin {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: colors.lightF3F4F6DarkF3F4F6),
+          borderSide: BorderSide(
+            color: colors.lightF3F4F6Dark5A5A5A,
+          ),
         ),
         errorBorder: OutlineInputBorder(
           gapPadding: 2,

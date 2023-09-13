@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:nuntium_rigid/app/modules/news/data/model/news_model/news_model.dart';
 import 'package:nuntium_rigid/app/modules/news/domain/service/interface/news_service_interface.dart';
-import 'package:nuntium_rigid/app/shared/extensions/http_extensions.dart';
 import 'package:nuntium_rigid/app/shared/shared.dart';
 import 'package:nuntium_rigid/core/core.dart';
 

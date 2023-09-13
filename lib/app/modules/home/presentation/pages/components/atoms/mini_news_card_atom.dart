@@ -45,7 +45,7 @@ class _MiniNewsCardAtomState extends State<MiniNewsCardAtom>
               ),
               child: BaseText(
                 widget.model.author ?? '',
-                color: colors.lightWhiteDarkBlack,
+                color: colors.alwaysWhite,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
                 maxLines: 2,
@@ -59,7 +59,7 @@ class _MiniNewsCardAtomState extends State<MiniNewsCardAtom>
               ),
               child: BaseText(
                 widget.model.description ?? '',
-                color: colors.lightWhiteDarkBlack,
+                color: colors.alwaysWhite,
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
                 maxLines: 3,

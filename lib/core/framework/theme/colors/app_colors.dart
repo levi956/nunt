@@ -8,10 +8,14 @@ class AppColors {
   final Color alwaysWhite;
   final Color alwaysBlack;
   final Color always475AD7;
+  final Color lightACAFC3Dark7C82A1;
   final Color light7C82A1DarkFFFFF;
 
   final Color light333647DarkFFFFF;
-  final Color lightF3F4F6DarkF3F4F6;
+  final Color lightF3F4F6Dark5A5A5A;
+  final Color light666C8EDarkFFFFF;
+
+  // lightF3F4F6DarkF3F4F6,
 
   AppColors({
     required this.lightBlackDarkWhite,
@@ -21,6 +25,8 @@ class AppColors {
     this.always475AD7 = const Color(0xFF475AD7),
     required this.light7C82A1DarkFFFFF,
     required this.light333647DarkFFFFF,
-    required this.lightF3F4F6DarkF3F4F6,
+    required this.lightF3F4F6Dark5A5A5A,
+    required this.lightACAFC3Dark7C82A1,
+    required this.light666C8EDarkFFFFF,
   });
 }

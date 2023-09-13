@@ -17,6 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
+  flutter_svg: ^2.0.7
   freezed: ^2.4.2
   freezed_annotation: ^2.4.1
   get_it: ^7.6.4
@@ -38,6 +39,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/svgs/
 
   fonts:
     - family: SFPRO

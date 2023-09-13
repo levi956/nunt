@@ -39,33 +39,29 @@ class _TopNewsCardComponentState extends State<TopNewsCardComponent>
               right: 10,
               bottom: 10,
             ),
-            color: colors.lightF3F4F6DarkF3F4F6,
-            child: BaseText(
-              widget.news.title ?? '',
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-            ),
-          ),
-          Container(
-            width: double.maxFinite,
-            padding: const EdgeInsets.only(
-              bottom: 10,
-              left: 10,
-              right: 10,
-            ),
             decoration: BoxDecoration(
-              color: colors.lightF3F4F6DarkF3F4F6,
+              color: colors.lightF3F4F6Dark5A5A5A,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15),
               ),
             ),
-            child: BaseText(
-              widget.news.description ?? '',
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              //   overflow: TextOverflow.ellipsis,
-              maxLines: 3,
+            child: Column(
+              children: [
+                BaseText(
+                  widget.news.title ?? '',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+                const SizedBox(height: 5),
+                BaseText(
+                  widget.news.description ?? '',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  //   overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 20),

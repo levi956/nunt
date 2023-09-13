@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
 
-extension Extras on Response {
+extension HTTPExtras on Response {
   bool get is200 => statusCode == 200;
   bool get is201 => statusCode == 201;
   bool get is202 => statusCode == 202;

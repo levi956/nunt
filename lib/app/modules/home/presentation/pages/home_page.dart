@@ -50,6 +50,7 @@ class _HomePageState extends State<HomePage>
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SafeArea(
+          bottom: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,9 +60,10 @@ class _HomePageState extends State<HomePage>
                 fontSize: 24,
               ),
               const SizedBox(height: 20),
-              const BaseText(
+              BaseText(
                 'Discover things of the world',
                 fontSize: 16,
+                color: colors.light7C82A1DarkFFFFF,
               ),
               const SizedBox(height: 20),
               ScrollableTabBarComponent(
@@ -85,11 +87,11 @@ class _HomePageState extends State<HomePage>
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               const BaseText(
-                'Top News',
+                'Recommended for you',
                 fontWeight: FontWeight.bold,
-                fontSize: 24,
+                fontSize: 20,
               ),
               const SizedBox(height: 20),
               getNewsController.buildWhen(
@@ -102,6 +104,7 @@ class _HomePageState extends State<HomePage>
                   }
                   return Expanded(
                     child: ListView.separated(
+                      padding: EdgeInsets.zero,
                       separatorBuilder: (_, __) => const SizedBox(height: 10),
                       itemCount: news.length,
                       itemBuilder: (_, index) {

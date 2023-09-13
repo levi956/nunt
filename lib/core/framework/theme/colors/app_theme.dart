@@ -19,10 +19,12 @@ class AppTheme {
         light333647DarkFFFFF: const Color(0xFF333647),
         light7C82A1DarkFFFFF: const Color(0xFF7C82A1),
         lightBlackDarkWhite: const Color(0xFF333647),
-        lightF3F4F6DarkF3F4F6: const Color(0xFFF3F4F6),
+        lightF3F4F6Dark5A5A5A: const Color(0xFFF3F4F6),
         always475AD7: const Color(0xFF475AD7),
         alwaysBlack: const Color(0xFF333647),
         alwaysWhite: Colors.white,
+        lightACAFC3Dark7C82A1: const Color(0xFFACAFC3),
+        light666C8EDarkFFFFF: const Color(0xFF666C8E),
       ),
     );
   }
@@ -38,7 +40,9 @@ class AppTheme {
         light333647DarkFFFFF: Colors.white,
         light7C82A1DarkFFFFF: Colors.white,
         lightBlackDarkWhite: Colors.white,
-        lightF3F4F6DarkF3F4F6: const Color(0xFFF3F4F6),
+        lightF3F4F6Dark5A5A5A: const Color(0xFF5A5A5A),
+        lightACAFC3Dark7C82A1: const Color(0xFF7C82A1),
+        light666C8EDarkFFFFF: Colors.white,
       ),
     );
   }
