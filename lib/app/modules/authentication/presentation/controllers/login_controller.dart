@@ -5,8 +5,9 @@ import 'package:nuntium_rigid/core/core.dart';
 
 @lazySingleton
 class LoginController extends BaseController<LoginModel, void> {
-  LoginController({required AuthenticationRepositoryInterface repository})
-      : super(function: repository.login);
+  LoginController({
+    required AuthenticationRepositoryInterface repository,
+  }) : super(function: repository.login);
   void login({
     required String email,
     required String password,

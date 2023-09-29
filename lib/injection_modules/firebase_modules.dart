@@ -16,6 +16,6 @@ abstract class FirebaseModule {
 
   @lazySingleton
   FirebaseAuth getFirebaseAuth(FirebaseApp app) {
-    return FirebaseAuth.instanceFor(app: app, persistence: Persistence.LOCAL);
+    return FirebaseAuth.instanceFor(app: app);
   }
 }

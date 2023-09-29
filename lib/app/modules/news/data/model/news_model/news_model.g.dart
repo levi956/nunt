@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'news_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NewsModel _$$_NewsModelFromJson(Map<String, dynamic> json) => _$_NewsModel(
+_$NewsModelImpl _$$NewsModelImplFromJson(Map<String, dynamic> json) =>
+    _$NewsModelImpl(
       title: json['title'] as String?,
       author: json['author'] as String?,
       content: json['content'] as String?,
@@ -20,7 +19,7 @@ _$_NewsModel _$$_NewsModelFromJson(Map<String, dynamic> json) => _$_NewsModel(
           : DateTime.parse(json['publishedAt'] as String),
     );
 
-Map<String, dynamic> _$$_NewsModelToJson(_$_NewsModel instance) =>
+Map<String, dynamic> _$$NewsModelImplToJson(_$NewsModelImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'author': instance.author,

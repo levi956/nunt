@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:nuntium_rigid/app/shared/shared.dart';
+import 'package:nuntium_rigid/app/modules/authentication/presentation/pages/counter_page.dart';
+import 'package:nuntium_rigid/app/modules/authentication/presentation/pages/login_page.dart';
 import 'package:nuntium_rigid/core/core.dart';
 import 'package:nuntium_rigid/injectable.dart';
 
@@ -37,6 +38,6 @@ class _AppState extends State<App> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return const DashboardPage();
+    return const CounterPage();
   }
 }

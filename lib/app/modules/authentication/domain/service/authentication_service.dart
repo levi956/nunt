@@ -6,7 +6,9 @@ import 'package:nuntium_rigid/app/modules/authentication/domain/service/interfac
 class AuthenticationService implements AuthenticationServiceInterface {
   final FirebaseAuth _firebaseAuth;
 
-  AuthenticationService(this._firebaseAuth);
+  AuthenticationService(this._firebaseAuth) {
+    _firebaseAuth.setPersistence(Persistence.LOCAL);
+  }
 
   @override
   Future<void> login({required String email, required String password}) async {
