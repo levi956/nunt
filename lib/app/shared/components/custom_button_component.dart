@@ -12,7 +12,7 @@ class CustomButton extends StatefulWidget {
   final double? width;
 
   const CustomButton({
-    Key? key,
+    super.key,
     this.expanded = false,
     required this.text,
     this.color,
@@ -21,7 +21,7 @@ class CustomButton extends StatefulWidget {
     this.padding,
     this.validator,
     this.width,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomButton> createState() => _CustomButtonState();

@@ -12,10 +12,12 @@ mixin AppThemeMixin<T extends StatefulWidget> on State<T> {
   @override
   void initState() {
     getIt<AppThemeController>().stream.listen((theme) {
-      setState(() {
-        this.theme = theme;
-        this.colors = theme.colors;
-      });
+      if (mounted) {
+        setState(() {
+          this.theme = theme;
+          this.colors = theme.colors;
+        });
+      }
     });
     super.initState();
   }

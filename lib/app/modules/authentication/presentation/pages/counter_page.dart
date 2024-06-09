@@ -18,6 +18,7 @@ class _CounterPageState extends State<CounterPage> {
   @override
   void initState() {
     counterController = getIt<CounterController>();
+
     counterStream = counterController.counterStream.asStreamState();
     super.initState();
   }
@@ -39,12 +40,19 @@ class _CounterPageState extends State<CounterPage> {
       body: Center(
         child: counterStream.buildWhen(
           loading: () => const SizedBox(),
-          success: (value) => Text("$value"),
+          success: (value) => Text(
+            "$value",
+            style: const TextStyle(
+              fontSize: 30,
+            ),
+          ),
         ),
       ),
     );
   }
 }
+
+// streams, sinks, stream controllers, behaviour subjects
 
 @lazySingleton
 class CounterController {

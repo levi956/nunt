@@ -6,9 +6,7 @@ import 'package:nuntium_rigid/app/modules/authentication/domain/service/interfac
 class AuthenticationService implements AuthenticationServiceInterface {
   final FirebaseAuth _firebaseAuth;
 
-  AuthenticationService(this._firebaseAuth) {
-    _firebaseAuth.setPersistence(Persistence.LOCAL);
-  }
+  AuthenticationService(this._firebaseAuth);
 
   @override
   Future<void> login({required String email, required String password}) async {
@@ -24,11 +22,12 @@ class AuthenticationService implements AuthenticationServiceInterface {
   }
 
   @override
-  Future<void> register(
-      {required String email,
-      required String password,
-      required String firstName,
-      required String lastName}) async {
+  Future<void> register({
+    required String email,
+    required String password,
+    required String firstName,
+    required String lastName,
+  }) async {
     await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,

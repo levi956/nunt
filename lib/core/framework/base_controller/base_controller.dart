@@ -10,16 +10,14 @@ enum TriggerType { value, reset, auto }
   return (10, 20);
 }
 
-class _Trigger<SinkType, StreamType> {
+class _Trigger<SinkType> {
   final TriggerType type;
   final SinkType? value;
-  final StreamType? autoValue;
   final bool startsWithLoading;
 
   _Trigger({
     required this.type,
     this.value,
-    this.autoValue,
     this.startsWithLoading = true,
   });
 }
@@ -27,10 +25,9 @@ class _Trigger<SinkType, StreamType> {
 class NoArgBaseController<StreamType> extends BaseController<void, StreamType> {
   NoArgBaseController({
     required FutureOr<StreamType> Function() function,
-    Stream<(void, bool)> Function(Stream<(void, bool)>)? pipe,
+    super.pipe,
   }) : super(
           function: (_) => function(),
-          pipe: pipe,
         );
 
   void get({bool startsWithLoading = true}) {
@@ -50,16 +47,16 @@ class NoArgBaseController<StreamType> extends BaseController<void, StreamType> {
 }
 
 class BaseController<SinkType, StreamType> {
-  late final Sink<_Trigger<SinkType, StreamType>> _sink;
+  late final Sink<_Trigger<SinkType>> _sink;
   late Stream<StreamState<StreamType>> state;
 
   final List<StreamSubscription<StreamState<StreamType>>> listenersCache = [];
 
   BaseController({
-    required FutureOr<StreamType> Function(SinkType data) function,
+    required Function(SinkType data) function,
     Stream<(SinkType, bool)> Function(Stream<(SinkType, bool)>)? pipe,
   }) {
-    final subject = BehaviorSubject<_Trigger<SinkType, StreamType>>();
+    final subject = BehaviorSubject<_Trigger<SinkType>>();
 
     final valueStream = subject.stream
         .where((event) => event.type == TriggerType.value)
@@ -67,10 +64,10 @@ class BaseController<SinkType, StreamType> {
 
     final valueStreamPipe = pipe != null ? pipe(valueStream) : valueStream;
 
-    final subjectStream = Rx.merge<_Trigger<SinkType, StreamType>>([
-      subject.stream.where((event) => event.type != TriggerType.value),
+    final subjectStream = Rx.merge<_Trigger<SinkType>>([
+      subject.stream.where((event) => event.type == TriggerType.reset),
       valueStreamPipe.map(
-        (event) => _Trigger<SinkType, StreamType>(
+        (event) => _Trigger<SinkType>(
           type: TriggerType.value,
           value: event.$1,
           startsWithLoading: event.$2,
@@ -78,8 +75,7 @@ class BaseController<SinkType, StreamType> {
       ),
     ]).asBroadcastStream();
 
-    final behaviorSubjectStream =
-        BehaviorSubject<_Trigger<SinkType, StreamType>>();
+    final behaviorSubjectStream = BehaviorSubject<_Trigger<SinkType>>();
     subjectStream.listen(behaviorSubjectStream.add);
 
     final stateSubject = BehaviorSubject<StreamState<StreamType>>();
@@ -89,13 +85,13 @@ class BaseController<SinkType, StreamType> {
         if (value.type == TriggerType.reset) {
           return Stream.value(StreamState<StreamType>.initial());
         }
-        if (value.type == TriggerType.auto) {
-          return Stream.value(
-            StreamState<StreamType>.success(value.autoValue as StreamType),
-          );
-        }
         final response = function(value.value as SinkType);
-        return Rx.fromCallable<StreamType>(() => response).asStreamState(
+
+        final finalStream = response is FutureOr<StreamType>
+            ? Rx.fromCallable<StreamType>(() => response)
+            : (response as Stream<StreamType>);
+
+        return finalStream.asStreamState(
           startsWithLoading: value.startsWithLoading,
         );
       },
@@ -105,28 +101,18 @@ class BaseController<SinkType, StreamType> {
     this.state = stateSubject.stream;
   }
 
-  void auto(StreamType value) {
-    _sink.add(
-      _Trigger<SinkType, StreamType>(
-        type: TriggerType.auto,
-        autoValue: value,
-      ),
-    );
-  }
-
   void trigger(SinkType model, {bool startsWithLoading = true}) {
     _sink.add(
-      _Trigger<SinkType, StreamType>(
+      _Trigger<SinkType>(
         type: TriggerType.value,
         value: model,
-        startsWithLoading: startsWithLoading,
       ),
     );
   }
 
   void reset() {
     _sink.add(
-      _Trigger<SinkType, StreamType>(type: TriggerType.reset),
+      _Trigger<SinkType>(type: TriggerType.reset),
     );
     removeListeners();
   }

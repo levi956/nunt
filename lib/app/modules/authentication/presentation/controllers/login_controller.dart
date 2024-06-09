@@ -12,7 +12,10 @@ class LoginController extends BaseController<LoginModel, void> {
     required String email,
     required String password,
   }) {
-    final model = LoginModel(email: email, password: password);
+    final model = LoginModel(
+      email: email,
+      password: password,
+    );
     trigger(model);
   }
 }

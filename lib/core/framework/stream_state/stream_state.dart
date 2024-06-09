@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart';
@@ -73,8 +74,9 @@ extension AsStreamState<T> on Stream<T> {
     }
     if (!isDebug) {
       return baseStream.onErrorReturnWith(
-        (error, _) {
+        (error, stack) {
           if (convertExceptionToString) {
+            print(stack);
             return StreamState<T>.failure(mapExceptionToString(
               error,
             ));
@@ -109,7 +111,16 @@ String mapExceptionToString(Object error) {
   if (error is AppException) {
     return error.message;
   }
-  return default_;
+
+  if (error is TypeError) {
+    return "Type error $error";
+  }
+
+  if (error is FirebaseException) {
+    return error.message ?? default_;
+  }
+
+  return error.toString();
 }
 
 class AppException implements Exception {

@@ -10,8 +10,8 @@ class NewsRepository implements NewsRepositoryInterface {
   NewsRepository(this._newsService);
 
   @override
-  Future<List<NewsModel>> getCategoryNews(String keywoord) {
-    return _newsService.getCategoryNews(keywoord);
+  Future<List<NewsModel>> getCategoryNews(String keyword) {
+    return _newsService.getCategoryNews(keyword);
   }
 
   @override

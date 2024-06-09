@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> with AppThemeMixin {
       },
       success: (v) {
         pop(context);
-        // pushToAndClearStack(context, const DashboardPage());
+        pushToAndClearStack(context, const DashboardPage());
       },
       failure: (e) {
         pop(context);
@@ -116,66 +116,6 @@ class _LoginPageState extends State<LoginPage> with AppThemeMixin {
                 ),
                 const SizedBox(height: 30),
 
-                // you to get the (onchanged) date
-                // assign it to a variable
-                // use the (checkValidity) function to compare
-
-                DateDisplayTileComponent(
-                  date: formatDateTimeToHours(selectedTime),
-                  header: 'Select time',
-                  onTap: () {
-                    timeSelectorDialog(
-                      context: context,
-                      child: CupertinoDatePicker(
-                        initialDateTime: selectedTime,
-                        mode: CupertinoDatePickerMode.time,
-                        use24hFormat: true,
-                        onDateTimeChanged: (selected) {
-                          // highlight code here
-                          // blah blah blah
-                          // selctedhgihteifrhe
-
-                          //NOTE: this is your own feature
-                          //NOTE: Make the hour from SELECTED FALL IN RANGE
-
-                          selectedTime = selected;
-                          setState(() {});
-
-                          // declare a variable that is (selectedTime)
-
-                          //DateTime selectedTime = DateTime.now()
-
-                          // assign selectedTime = selected
-
-                          //  setState(() {});
-
-                          // so in the button or something you do this
-
-                          // if (checkValidity(selectedTime)) {
-                          //   // show the snackbar error here
-                          //   return;
-                          // }
-
-                          selectedTime = selected;
-                          setState(() {});
-                        },
-                      ),
-                    );
-                  },
-                ),
-                // Align(
-                //   alignment: Alignment.centerRight,
-                //   child: TextButton(
-                //     onPressed: () {
-                //       showPassword = !showPassword;
-                //       setState(() {});
-                //     },
-                //     child: Text(
-                //       "${showPassword ? "Hide" : "Show"} password",
-                //       style: const TextStyle(color: black),
-                //     ),
-                //   ),
-                // ),
                 const Spacer(),
                 CustomButton(
                   text: "Continue",

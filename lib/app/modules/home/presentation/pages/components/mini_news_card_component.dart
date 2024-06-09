@@ -8,9 +8,9 @@ import 'package:nuntium_rigid/injectable.dart';
 class MiniNewsCardComponent extends StatefulWidget {
   final String category;
   const MiniNewsCardComponent({
-    Key? key,
+    super.key,
     required this.category,
-  }) : super(key: key);
+  });
 
   @override
   State<MiniNewsCardComponent> createState() => _MiniNewsCardComponentState();

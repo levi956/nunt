@@ -6,7 +6,7 @@ import 'package:nuntium_rigid/core/core.dart';
 
 class TopNewsCardComponent extends StatefulWidget {
   final NewsModel news;
-  const TopNewsCardComponent(this.news, {Key? key}) : super(key: key);
+  const TopNewsCardComponent(this.news, {super.key});
 
   @override
   State<TopNewsCardComponent> createState() => _TopNewsCardComponentState();
